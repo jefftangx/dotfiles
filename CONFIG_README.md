@@ -13,13 +13,19 @@ dotfiles/
 └── ...
 ```
 
-## Claude Code (`claude/`)
+## Claude Configurations (`claude/`)
 
-### `settings.json`
-Main Claude Code settings including:
+**Note:** There are TWO different Claude applications with different config locations:
+
+### 1. **Claude Code CLI** (command-line tool - what you're using now)
+Uses `settings.json` with MCP servers **inside** the file.
+
+**File:** `claude/settings.json`
+
+Configuration includes:
 - **Hooks**: macOS notifications for task completion
 - **Enabled Plugins**: Document skills, n8n, code review, etc.
-- **MCP Servers**: Configuration for MCP integrations
+- **MCP Servers**: Configuration for MCP integrations (under `mcpServers` key)
 
 ⚠️ **Contains placeholders for sensitive data:**
 - `YOUR_TOKEN_HERE` - Replace with your actual tokens
@@ -33,8 +39,10 @@ cp claude/settings.json ~/.claude/settings.json
 # Edit ~/.claude/settings.json and replace all placeholders
 ```
 
-### `mcp.json`
-Claude Desktop MCP server configuration.
+### 2. **Claude Desktop App** (standalone GUI application)
+Uses a separate `mcp.json` file ONLY for MCP servers.
+
+**File:** `claude/mcp.json`
 
 ⚠️ **Contains placeholders for sensitive data:**
 - `YOUR_GOOGLE_CLIENT_ID` - Google OAuth client ID
@@ -46,9 +54,18 @@ Claude Desktop MCP server configuration.
 
 **Installation:**
 ```bash
+# Option 1: ~/.claude/mcp.json
 cp claude/mcp.json ~/.claude/mcp.json
-# Edit ~/.claude/mcp.json and replace all placeholders
+
+# Option 2: Claude Desktop's config location
+cp claude/mcp.json ~/Library/Application\ Support/Claude/claude_desktop_config.json
+
+# Edit the file and replace all placeholders
 ```
+
+**Summary:**
+- **Claude Code CLI**: Use `settings.json` (MCP servers are inside)
+- **Claude Desktop**: Use `mcp.json` (separate file for MCP only)
 
 ## Cursor IDE (`cursor/`)
 
