@@ -4,7 +4,8 @@
   required = true
   process = git-lfs filter-process
 [user]
-  username = tangjeff0
+  username = jefftangx
+  name = jefftangx
   email = tangj1122@gmail.com
 [core]
   editor = /usr/bin/vim

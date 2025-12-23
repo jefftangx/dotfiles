@@ -2,7 +2,7 @@
 alias soz="source ~/.zshrc"
 alias sob="source ~/.bashrc"
 alias sop="source ~/.profile"
-alias l='ls --color=always -l -a'
+alias l='ls -G -l -a'
 alias g="git"
 alias v='vim'
 alias pip="pip3"
@@ -23,16 +23,21 @@ antigen bundle rupa/z
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-history-substring-search
 antigen bundle zsh-users/zsh-syntax-highlighting
-THEME=denysdovhan/spaceship-prompt
-antigen list | grep $THEME; if [ $? -ne 0 ]; then antigen theme $THEME; fi
+antigen theme romkatv/powerlevel10k
 antigen apply
 
+# To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
+[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 
 
-# NVM
+
+# NVM (lazy-loaded for faster shell startup)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Lazy load nvm - only initialize when first used
+alias nvm='unalias nvm node npm npx && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" && nvm'
+alias node='unalias nvm node npm npx && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" && node'
+alias npm='unalias nvm node npm npx && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" && npm'
+alias npx='unalias nvm node npm npx && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" && [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion" && npx'
 
 # Rust
 . "$HOME/.cargo/env"
