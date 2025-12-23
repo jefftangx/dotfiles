@@ -1,0 +1,28 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "shift+alt+5",
+        "command": "editor.emmet.action.matchTag"
+    },
+    {
+        "key": "shift+5",
+        "command": "editor.action.jumpToBracket",
+        "when": "editorTextFocus && (vim.mode == 'Normal' || vim.mode == 'Visual')"
+    },
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "cmd+i",
+        "command": "composerMode.agent"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    }
+]

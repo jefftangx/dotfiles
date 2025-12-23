@@ -1,0 +1,60 @@
+{
+  "mcpServers": {
+    "gdrive": {
+      "command": "npx",
+      "args": ["-y", "@isaacphi/mcp-gdrive"],
+      "env": {
+        "CLIENT_ID": "YOUR_GOOGLE_CLIENT_ID",
+        "CLIENT_SECRET": "YOUR_GOOGLE_CLIENT_SECRET",
+        "GDRIVE_CREDS_DIR": "/Users/YOUR_USERNAME/code/mcp-airtable-sw/mcp-gdrive"
+      }
+    },
+    "airtable": {
+      "command": "npx",
+      "args": ["-y", "airtable-mcp-server"],
+      "env": {
+        "AIRTABLE_API_KEY": "YOUR_AIRTABLE_API_KEY"
+      }
+    },
+    "posthog": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@latest",
+        "https://mcp.posthog.com/sse",
+        "--header",
+        "Authorization:${POSTHOG_AUTH_HEADER}"
+      ],
+      "env": {
+        "POSTHOG_AUTH_HEADER": "Bearer YOUR_POSTHOG_TOKEN"
+      }
+    },
+    "Figma Desktop": {
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "gmail": {
+      "command": "node",
+      "args": ["/Users/YOUR_USERNAME/code/mcp-airtable-sw/mcp-gmail/dist/index.js"],
+      "env": {
+        "CLIENT_ID": "YOUR_GOOGLE_CLIENT_ID",
+        "CLIENT_SECRET": "YOUR_GOOGLE_CLIENT_SECRET",
+        "GMAIL_CREDS_DIR": "/Users/YOUR_USERNAME/code/mcp-airtable-sw/mcp-gmail"
+      }
+    },
+    "n8n-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e", "MCP_MODE=stdio",
+        "-e", "LOG_LEVEL=error",
+        "-e", "DISABLE_CONSOLE_OUTPUT=true",
+        "-e", "N8N_API_URL=http://host.docker.internal:5678",
+        "-e", "N8N_API_KEY=YOUR_N8N_API_KEY",
+        "ghcr.io/czlonkowski/n8n-mcp:latest"
+      ]
+    }
+  }
+}

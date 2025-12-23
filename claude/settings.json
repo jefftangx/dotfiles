@@ -1,0 +1,83 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude task completed\" with title \"✓ Claude Code\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Agent task completed\" with title \"✓ Agent Done\" sound name \"Glass\"'"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "document-skills@anthropic-agent-skills": true,
+    "n8n-mcp-skills@n8n-mcp-skills": true,
+    "code-review@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "mcp-agent-mail": {
+      "type": "http",
+      "url": "http://127.0.0.1:8765/mcp/",
+      "headers": {
+        "Authorization": "Bearer YOUR_TOKEN_HERE"
+      }
+    },
+    "mcp-gdrive": {
+      "command": "node",
+      "args": [
+        "/Users/YOUR_USERNAME/code/mcp-airtable-sw/mcp-gdrive/dist/index.js"
+      ]
+    },
+    "mcp-gmail": {
+      "command": "node",
+      "args": [
+        "/Users/YOUR_USERNAME/code/mcp-airtable-sw/mcp-gmail/dist/index.js"
+      ]
+    },
+    "airtable": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-airtable"
+      ],
+      "env": {
+        "AIRTABLE_API_KEY": "YOUR_AIRTABLE_API_KEY"
+      }
+    },
+    "n8n-mcp": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "--init",
+        "-e",
+        "MCP_MODE=stdio",
+        "-e",
+        "LOG_LEVEL=error",
+        "-e",
+        "DISABLE_CONSOLE_OUTPUT=true",
+        "-e",
+        "N8N_API_URL=http://host.docker.internal:5678",
+        "-e",
+        "N8N_API_KEY=YOUR_N8N_API_KEY",
+        "ghcr.io/czlonkowski/n8n-mcp:latest"
+      ]
+    }
+  }
+}

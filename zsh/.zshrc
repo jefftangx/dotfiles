@@ -1,13 +1,7 @@
-# Aliases
-alias soz="source ~/.zshrc"
+# Quick reload alias - sources only functions, not full zshrc
+alias soz="source ~/.zsh/functions.zsh"
 alias sob="source ~/.bashrc"
 alias sop="source ~/.profile"
-alias l='ls -G -l -a'
-alias g="git"
-alias v='vim'
-alias pip="pip3"
-alias py="python3"
-
 
 # zshrc packages and config
 export ZDOTDIR=$HOME/.zsh
@@ -41,3 +35,6 @@ alias npx='unalias nvm node npm npx && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/n
 
 # Rust
 . "$HOME/.cargo/env"
+
+# Load functions and aliases
+source ~/.zsh/functions.zsh

@@ -1,0 +1,79 @@
+{
+    "security.workspace.trust.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": true,
+        "markdown": false,
+        "rust": false
+    },
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.profiles.osx": {
+        "zsh": {
+            "path": "/bin/zsh -l",
+            "args": [
+                "-i"
+            ]
+        }
+    },
+    "editor.minimap.enabled": false,
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "explorer.confirmDragAndDrop": false,
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "window.zoomLevel": 1,
+    "cursor.cpp.disabledLanguages": [
+        "yaml",
+        "markdown",
+        "rust"
+    ],
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact"
+    },
+    "git.autofetch": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "undo"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "redo"
+                }
+            ]
+        }
+    ],
+    "git.enableSmartCommit": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "git.confirmSync": false,
+    "editor.wordWrap": "on",
+    "editor.accessibilitySupport": "off",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "claudeCode.allowDangerouslySkipPermissions": true,
+    "amp.url": "https://ampcode.com/",
+    "editor.wordBasedSuggestions": "off",
+    "amp.tab.enabled": true,
+    "claudeCode.preferredLocation": "panel"
+}

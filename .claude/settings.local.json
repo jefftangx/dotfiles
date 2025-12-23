@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(source:*)",
+      "Bash(notify echo \"Test notification\")",
+      "Bash(cat:*)",
+      "Bash(zsh -c \"source ~/.zsh/functions.zsh && type notify\")",
+      "Bash(zsh -c \"source ~/.zsh/functions.zsh && notify echo ''Testing notification''\")",
+      "Bash(terminal-notifier:*)",
+      "Bash(echo:*)"
+    ]
+  }
+}
